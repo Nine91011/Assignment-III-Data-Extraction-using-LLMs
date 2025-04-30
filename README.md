@@ -6,7 +6,7 @@ This project extracts metadata from full-text scientific articles for systematic
 - `articles/` — Full-text PDF articles
 - `prompts/` — Initial and Final prompt versions
 - `output/` — Final extracted metadata in Excel
-- `assignment3.ipynb` — Main code notebook
+- `Asignment III_Chayanon.ipynb` — Main code notebook
 
 ## How to Run
 1. Clone the repo
