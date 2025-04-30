@@ -1,0 +1,100 @@
+Please extract the following metadata from the full text of this research article and present it following Data Extraction Template.
+
+For each variable:
+– If “Allow multiple input” = Y, return an array;  
+– If “Allow multiple input” = N, return a single value. 
+
+––––––––––––––––––––––––––––––––––––––––––––––  
+GENERAL STUDY INFORMATION  
+1. study_id (N)  
+   • Definition: Unique identifier for this study (e.g., "1")  
+2. author (N)  
+   • Definition: List of authors as in byline (e.g., "Justin A Strauss, Chun R Chao, …")  
+3. year (N)  
+   • Definition: Publication year (e.g., 2013)  
+4. title (N)  
+   • Definition: Full article title  
+5. journal (N)  
+   • Definition: Journal name (e.g., "J Am Med Inform Assoc")  
+
+STUDY DESIGN  
+6. study_design (N)  
+   • Definition: Overall design (e.g., "Validation study", "Retrospective cohort")  
+7. Study-phase (Y)  
+   • Definition: Clinical trial phase or stage (e.g., “Phase I”, “Phase II”)  
+8. Study period (Y)  
+   • Definition: Dates or years during which study ran (e.g., “2000–2007”)  
+9. study_task (N)  
+   • Definition: Main task performed (e.g., “Identify and extract cancer recurrence”)  
+
+DATA SOURCE  
+10. Data source (Y)  
+    • Definition: Origin of text data (e.g., “Electronic pathology reports”)  
+11. Data source type (Y)  
+    • Definition: Format of source (e.g., “SAS database”, “PDF”)  
+12. N of data sources (N)  
+    • Definition: Number of distinct sources (e.g., “1”)  
+13. Type of clinical text data (Y)  
+    • Definition: Kind of document (e.g., “Pathology report”)  
+14. Text language (Y)  
+    • Definition: Language of text (e.g., “English”)  
+15. Type of cancer (Y)  
+    • Definition: Cancer types studied (e.g., “breast”, “prostate”)  
+16. Recurrent organ (Y)  
+    • Definition: Organs where recurrence occurred (e.g., “breast”, “lymph node”)  
+17. Type of outcome (N)  
+    • Definition: Measured outcomes (e.g., “primary diagnosis”, “recurrence”)  
+
+DATA PREPARATION  
+18. vocab size (N)  
+    • Definition: Vocabulary size if text representation used (e.g., “–” for rule-based)  
+19. Text representation (Y)  
+    • Definition: Representation techniques (e.g., “BERT”, “TF-IDF”)  
+
+STUDY SUBJECT  
+20. total_n_patients (Y)  
+    • Definition: Total number of patients (e.g., “800”)  
+21. total_n_documents (Y)  
+    • Definition: Total number of documents processed (e.g., “882”)  
+22. Data split ratio (Y)  
+    • Definition: Training/validation/test split (e.g., “60:20:20”)  
+23. n_patients for each set (Y)  
+    • Definition: Number of patients per split (e.g., “480, 160, 160”)  
+24. n_documents for each set (Y)  
+    • Definition: Number of docs per split (e.g., “529, 176, 177”)  
+
+MODELING TECHNIQUES  
+25. Type of models (Y)  
+    • Definition: Model category (e.g., “Rule-based”, “ML”)  
+26. type of algorithm (Y)  
+    • Definition: Specific algorithm (e.g., “hierarchical rules”, “SVM”)  
+27. model-name (Y)  
+    • Definition: Model or tool name (e.g., “SCENT”)  
+28. Validation method (Y)  
+    • Definition: How performance was validated (e.g., “Manual chart review”)  
+
+EVALUATION METRICS  
+29. AUPRC (Y)  
+30. AUROC (Y)  
+31. F1 (Y)  
+32. Recall (Y)  
+33. Precision (Y)  
+34. Brier’s score (Y)  
+   • Definitions: Standard definitions for each metric  
+
+**Handling Multiple Analysis Units:**
+If the article analyzes or reports results for different subgroups, datasets, study phases, models, or other conditions separately (especially involving variables like 'Type of cancer', 'Study-phase', 'Data source type', 'Text representation', 'Type of models', 'type of algorithm'), **create a separate JSON object for each distinct analysis unit or combination**.
+Ensure each JSON object contains key-value pairs for *all* the variables listed above. Repeat common information (like author, year, title, journal) within each JSON object as necessary. If a specific variable (e.g., a particular evaluation metric) is not reported for a specific analysis unit, use `null` or an empty string for its value in that specific JSON object.
+
+**Output Format Requirement:**
+* Provide the output as a **JSON list**.
+* **Each element** in the list must be a **separate JSON object** representing **ONE unique study instance or analysis subgroup** found in the article
+* The keys within each JSON object MUST exactly match the variable names listed above (e.g., "study_id", "author", "Type of cancer").
+
+Article Text:
+---
+{article_text}
+---
+
+Extracted Metadata:
+

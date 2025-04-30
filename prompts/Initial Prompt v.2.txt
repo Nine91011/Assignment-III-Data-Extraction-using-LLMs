@@ -1,0 +1,24 @@
+Please extract the following metadata from the full text of this research article and present it in a structured format:
+- Author, title, year, journal
+- Study design and study phase
+- Type of clinical text data and language
+- Data source details (e.g., EHR, clinical notes)
+- Data preparation steps (e.g., preprocessing, feature extraction)
+- Study subject characteristics (e.g., number of patients, condition)
+- Modeling techniques used (e.g., ML algorithms, DL architectures)
+- Evaluation metrics reported (e.g., accuracy, AUC, F1-score)
+
+Provide the output clearly, separating each variable. If a variable has multiple values, list them all.
+
+**Output Format Requirement:**
+
+* Provide the output as a JSON list.
+* Each element in the list should be a JSON object representing 
+
+Article Text:
+---
+{article_text}
+---
+
+Extracted Metadata:
+
